@@ -1,0 +1,297 @@
+@font-face {
+	font-family: 'Alata';
+	src: url('/fonts/Alata-Regular.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Raleway';
+	src: url('/fonts/Raleway-ExtraBold.woff2') format('woff2');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Raleway';
+	src: url('/fonts/Raleway-Bold.woff2') format('woff2');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Raleway';
+	src: url('/fonts/Raleway-SemiBold.woff2') format('woff2');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Raleway';
+	src: url('/fonts/Raleway-Medium.woff2') format('woff2');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+
+/**
+  Нормализация блочной модели
+ */
+*,
+::before,
+::after {
+	box-sizing: border-box;
+}
+
+/**
+	  Убираем внутренние отступы слева тегам списков,
+	  у которых есть атрибут class
+	 */
+:where(ul, ol):where([class]) {
+	padding-left: 0;
+}
+
+/**
+	  Убираем внешние отступы body и двум другим тегам,
+	  у которых есть атрибут class
+	 */
+body,
+:where(blockquote, figure):where([class]) {
+	margin: 0;
+}
+
+/**
+	  Убираем внешние отступы вертикали нужным тегам,
+	  у которых есть атрибут class
+	 */
+:where(h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	ul,
+	ol,
+	dl):where([class]) {
+	margin-block: 0;
+}
+
+:where(dd[class]) {
+	margin-left: 0;
+}
+
+:where(fieldset[class]) {
+	margin-left: 0;
+	padding: 0;
+	border: none;
+}
+
+/**
+	  Убираем стандартный маркер маркированному списку,
+	  у которого есть атрибут class
+	 */
+:where(ul[class]) {
+	list-style: none;
+}
+
+:where(address[class]) {
+	font-style: normal;
+}
+
+/**
+	  Обнуляем вертикальные внешние отступы параграфа,
+	  объявляем локальную переменную для внешнего отступа вниз,
+	  чтобы избежать взаимодействие с более сложным селектором
+	 */
+p {
+	--paragraphMarginBottom: 24px;
+
+	margin-block: 0;
+}
+
+/**
+	  Внешний отступ вниз для параграфа без атрибута class,
+	  который расположен не последним среди своих соседних элементов
+	 */
+p:where(:not([class]):not(:last-child)) {
+	margin-bottom: var(--paragraphMarginBottom);
+}
+
+
+/**
+	  Упрощаем работу с изображениями и видео
+	 */
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+/**
+	  Наследуем свойства шрифт для полей ввода
+	 */
+input,
+textarea,
+select,
+button {
+	font: inherit;
+}
+
+html {
+	/**
+		Пригодится в большинстве ситуаций
+		(когда, например, нужно будет "прижать" футер к низу сайта)
+	   */
+	height: 100%;
+	/**
+		Убираем скачок интерфейса по горизонтали
+		при появлении / исчезновении скроллбара
+	   */
+	scrollbar-gutter: stable;
+}
+
+/**
+	  Плавный скролл
+	 */
+html,
+:has(:target) {
+	scroll-behavior: smooth;
+}
+
+body {
+	/**
+		Пригодится в большинстве ситуаций
+		(когда, например, нужно будет "прижать" футер к низу сайта)
+	   */
+	min-height: 100%;
+	/**
+		Унифицированный интерлиньяж
+	   */
+	line-height: 1.5;
+}
+
+/**
+	  Нормализация высоты элемента ссылки при его инспектировании в DevTools
+	 */
+a:where([class]) {
+	display: inline-flex;
+}
+
+/**
+	  Курсор-рука при наведении на элемент
+	 */
+button,
+label {
+	cursor: pointer;
+}
+
+/**
+	  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+	 */
+svg * {
+	transition-property: fill, stroke;
+}
+
+/**
+	  Приведение рамок таблиц в классический 'collapse' вид
+	 */
+:where(table) {
+	border-collapse: collapse;
+	border-color: currentColor;
+}
+
+/**
+	  Удаляем все анимации и переходы для людей,
+	  которые предпочитают их не использовать
+	 */
+@media (prefers-reduced-motion: reduce) {
+
+	*,
+	::before,
+	::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+:root {
+	--base-font: "Raleway";
+	--bg-color: #111214;
+	--yellow-color: #FAB400;
+	--red-color: #C80A50;
+	--grey-bg-color: #2A2B30;
+	--grey-border-color: #C6C6C6;
+	--base-font-color: #ffffff;
+}
+
+/*Общие стили*/
+body {
+	background-color: var(--bg-color);
+	color: var(--base-font-color);
+	font-family: var(--base-font);
+}
+
+.container {
+	max-width: 1340px;
+	margin: 0 auto;
+}
+
+a,
+a:active,
+a:visited {
+	text-decoration: none;
+	color: var(--base-font-color);
+}
+
+/*Стилизация Header*/
+.header {}
+
+.header-container {}
+
+.header-nav-bar {}
+
+.header-logo {}
+
+.header-logo-link {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	column-gap: 13px;
+}
+
+.header-logo-image {
+	max-width: 89px;
+}
+
+.header-logo-name {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+	line-height: 1;
+}
+
+.header-logo-name span:nth-child(1) {
+	font-size: 1.875rem;
+	font-family: "Alata";
+}
+
+.header-logo-name span:nth-child(2) {
+	font-size: 0.75rem
+}
+
+.header-nav-list {}
+
+.header-nav-item {}
+
+.header-nav-item-link {}
+
+.header-markets {}
