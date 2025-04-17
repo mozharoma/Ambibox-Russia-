@@ -858,3 +858,135 @@ a:visited {
 		max-width: 100%;
 	}
 }
+
+/*Стилизация Diagonals*/
+.diagonals {
+	background-color: var(--grey-bg-color);
+	border-top: 2px solid var(--grey-border-color);
+	border-bottom: 2px solid var(--grey-border-color);
+	border-radius: 44px;
+	padding-block: 3.63vh;
+}
+
+.diagonals-container {}
+
+.diagonals-header {
+	font-size: 2.75rem;
+	font-weight: 800;
+	text-align: center;
+	margin-bottom: 25px;
+}
+
+.diagonals-group {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 30px;
+}
+
+.diagonal-item {
+	display: flex;
+	flex-direction: column;
+}
+
+.diagonal-item:nth-child(3n+1) .diagonal-params {
+	border: 4px solid var(--yellow-color)
+}
+
+.diagonal-item:nth-child(3n+2) .diagonal-params {
+	border: 4px solid var(--red-color)
+}
+
+.diagonal-item:nth-child(3n+3) .diagonal-params {
+	border: 4px solid var(--blue-color)
+}
+
+.diagonal-image {
+	margin-bottom: 10px;
+	transition: all 0.2s;
+}
+
+.diagonal-image:hover {
+	scale: 1.05;
+}
+
+.diagonal-params {
+	background-color: #1F1F23;
+	border-radius: 10px;
+	font-size: 1.125rem;
+	font-weight: 800;
+	padding-inline: 10px;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.diagonal-buy-button {
+	padding-block: 10px;
+	font-size: 1.125rem;
+	font-weight: 800;
+	border-radius: 10px;
+	width: 100%;
+	padding-inline: 10px;
+	justify-content: center;
+}
+
+/*Все желтые кнопки*/
+.diagonal-item:nth-child(3n+1) .diagonal-buy-button {
+	background-color: var(--yellow-color);
+	box-shadow: 0px 0px 10px 0px var(--yellow-color);
+	transition: all 0.2s;
+}
+
+.diagonal-item:nth-child(3n+1) .diagonal-buy-button:hover {
+	box-shadow: 0px 0px 30px 5px var(--yellow-color);
+
+}
+
+/*Все красные кнопки*/
+.diagonal-item:nth-child(3n+2) .diagonal-buy-button {
+	background-color: var(--red-color);
+	box-shadow: 0px 0px 10px 0px var(--red-color);
+	transition: all 0.2s;
+}
+
+.diagonal-item:nth-child(3n+2) .diagonal-buy-button:hover {
+	box-shadow: 0px 0px 30px 5px var(--red-color);
+
+}
+
+/*Все синие кнопки*/
+.diagonal-item:nth-child(3n+3) .diagonal-buy-button {
+	background-color: var(--blue-color);
+	box-shadow: 0px 0px 10px 0px var(--blue-color);
+	transition: all 0.2s;
+}
+
+.diagonal-item:nth-child(3n+3) .diagonal-buy-button:hover {
+	box-shadow: 0px 0px 30px 5px var(--blue-color);
+
+}
+
+/*Адаптация Diagonals*/
+@media(max-width:1050px) {
+	.diagonals-group {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.diagonal-params {
+		font-size: 1rem;
+	}
+}
+
+@media(max-width:650px) {
+	.diagonals-group {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media(max-width:500px) {
+	.diagonals-header {
+		font-size: 1.4rem;
+		margin-bottom: 2.63vh;
+	}
+}
