@@ -1000,8 +1000,11 @@ a:visited {
 .diagonals-warnings-image {
 	border: 5px solid var(--blue-color);
 	border-radius: 13px;
-	flex-grow: 1;
 	flex-shrink: 0;
+}
+
+.diagonals-warnings-item:first-child {
+	max-width: 459px;
 }
 
 /*Адаптация Diagonals*/
