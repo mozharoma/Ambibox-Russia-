@@ -1400,8 +1400,12 @@ a:visited {
 .footer-logo-link {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 	column-gap: 13px;
+}
+
+.footer-logo-link img {
+	margin-bottom: -5px;
+	margin-left: -10px;
 }
 
 .footer-logo-image {
@@ -1483,6 +1487,7 @@ a:visited {
 	.footer-logo-link {
 		flex-direction: column;
 		justify-content: center;
+		align-items: center;
 	}
 
 }
