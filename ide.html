@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.testimonial-slider {
+			margin: 40px auto;
+			position: relative;
+			font-family: sans-serif;
+		}
+
+		.slider-container {
+			overflow: hidden;
+			position: relative;
+			border-radius: 12px;
+			box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+		}
+
+		.slider-track {
+			display: flex;
+			transition: transform 0.5s ease-in-out;
+			will-change: transform;
+		}
+
+		.slide {
+			flex: 0 0 100%;
+			padding: 30px;
+			box-sizing: border-box;
+			background: white;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.nav {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			background: rgba(0, 0, 0, 0.1);
+			border: none;
+			font-size: 30px;
+			padding: 5px 10px;
+			cursor: pointer;
+			user-select: none;
+		}
+
+		.nav.prev {
+			left: 10px;
+		}
+
+		.nav.next {
+			right: 10px;
+		}
+	</style>
+</head>
+
+<body>
+	<section class="testimonials">
+		<div class="testimonials-container container"></div>
+		<div class="slider-container">
+			<div class="slider-track">
+				<div class="slide">
+					<p>“Это топ! Приложил несколько видео, смотрите и убеждайтесь, что это того стоит! У меня ранее была старая версия - там были некоторые косяки в отображении цвета и малый функционал! Здесь же - просто вау!!! Качественная лента покрытая силиконовой оболочкой. Крутое приложение на IOS для настройки и управления. Есть несколько режимов: стандартная синхронизация с видеопотока. А так же синхронизация звуков в комнате - топ (даже на элементарный мой голос реагирует). Разные сценарии. ”</p>
+					<span>Дмитрий Х.</span>
+					<img src="/images/reviews_1.png" alt="">
+				</div>
+				<div class="slide">
+					<p>“Это топ! Приложил несколько видео, смотрите и убеждайтесь, что это того стоит! У меня ранее была старая версия - там были некоторые косяки в отображении цвета и малый функционал! Здесь же - просто вау!!! Качественная лента покрытая силиконовой оболочкой. Крутое приложение на IOS для настройки и управления. Есть несколько режимов: стандартная синхронизация с видеопотока. А так же синхронизация звуков в комнате - топ (даже на элементарный мой голос реагирует). Разные сценарии. ”</p>
+					<p>Дмитрий Х.</p>
+					<img src="/images/reviews_1.png" alt="">
+				</div>
+				<div class="slide">
+					<p>“Это топ! Приложил несколько видео, смотрите и убеждайтесь, что это того стоит! У меня ранее была старая версия - там были некоторые косяки в отображении цвета и малый функционал! Здесь же - просто вау!!! Качественная лента покрытая силиконовой оболочкой. Крутое приложение на IOS для настройки и управления. Есть несколько режимов: стандартная синхронизация с видеопотока. А так же синхронизация звуков в комнате - топ (даже на элементарный мой голос реагирует). Разные сценарии. ”</p>
+					<p>Дмитрий Х.</p>
+					<img src="/images/reviews_1.png" alt="">
+				</div>
+			</div>
+			<button class="nav prev">‹</button>
+			<button class="nav next">›</button>
+		</div>
+	</section>
+
+	<script>
+		const track = document.querySelector('.slider-track');
+		const slides = document.querySelectorAll('.slide');
+		const prevBtn = document.querySelector('.nav.prev');
+		const nextBtn = document.querySelector('.nav.next');
+
+		let currentIndex = 0;
+
+		function updateSlider() {
+			track.style.transform = `translateX(-${currentIndex * 100}%)`;
+		}
+
+		nextBtn.addEventListener('click', () => {
+			currentIndex = (currentIndex + 1) % slides.length;
+			updateSlider();
+		});
+
+		prevBtn.addEventListener('click', () => {
+			currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+			updateSlider();
+		});
+
+  // Optional: auto-play
+  // setInterval(() => {
+  //   nextBtn.click();
+  // }, 5000);
+	</script>
+</body>
+
+</html>
