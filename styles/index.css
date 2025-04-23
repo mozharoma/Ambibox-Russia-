@@ -264,6 +264,21 @@ a:visited {
 
 .header-number {
 	font-weight: 600;
+	margin-bottom: 10px;
+}
+
+.header-contacts {
+	display: flex;
+	flex-direction: column;
+}
+
+
+.header-contacts-label {
+	font-weight: 600;
+}
+
+.header-contacts-mail {
+	font-weight: 600;
 }
 
 .header-nav-bar {
@@ -352,17 +367,19 @@ a:visited {
 	.header-nav-bar {
 		flex-wrap: wrap;
 		justify-content: center;
+		row-gap: 20px;
 	}
 
 	.header-number {
 		order: 1;
 	}
+
+	.header-logo-link {
+		align-items: center;
+	}
 }
 
 @media (max-width:450px) {
-	.header-logo-image {
-		max-width: 60px;
-	}
 
 	.header-container {}
 
@@ -1353,6 +1370,21 @@ a:visited {
 
 .footer-number {
 	font-weight: 600;
+	margin-bottom: 10px;
+}
+
+.footer-contacts {
+	display: flex;
+	flex-direction: column;
+}
+
+
+.footer-contacts-label {
+	font-weight: 600;
+}
+
+.footer-contacts-mail {
+	font-weight: 600;
 }
 
 .footer-nav-bar {
@@ -1441,11 +1473,18 @@ a:visited {
 	.footer-nav-bar {
 		flex-wrap: wrap;
 		justify-content: center;
+		row-gap: 20px;
 	}
 
 	.footer-number {
 		order: 1;
 	}
+
+	.footer-logo-link {
+		flex-direction: column;
+		justify-content: center;
+	}
+
 }
 
 @media (max-width:450px) {
