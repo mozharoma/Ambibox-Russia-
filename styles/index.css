@@ -265,6 +265,14 @@ a:visited {
 .header-number {
 	font-weight: 600;
 	margin-bottom: 10px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	column-gap: 10px;
+}
+
+.header-number img {
+	max-width: 35px;
 }
 
 .header-contacts {
@@ -448,18 +456,18 @@ a:visited {
 	font-size: 1.125rem;
 	border-radius: 10px;
 	text-align: center;
-	max-width: 224px;
+	max-width: 250px;
 	flex-grow: 1;
 }
 
 .present-anchor-button {
-	background-color: var(--yellow-color);
+	background-color: var(--orange-color);
 	transition: all 0.2s;
-	box-shadow: 0px 0px 10px 0px var(--yellow-color);
+	box-shadow: 0px 0px 10px 0px var(--orange-color);
 }
 
 .present-anchor-button:hover {
-	box-shadow: 0px 0px 30px 5px var(--yellow-color);
+	box-shadow: 0px 0px 30px 5px var(--orange-color);
 }
 
 .present-buy-ozon-button {
@@ -904,9 +912,31 @@ a:visited {
 
 .diagonals-group {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(6, 1fr);
 	gap: 30px;
 	margin-bottom: 30px;
+}
+
+.diag-41-55 {
+	grid-column: 1/3;
+}
+
+.diag-50-60 {
+	grid-column: 3/5;
+}
+
+.diag-58-65 {
+	grid-column: 5/7;
+}
+
+.diag-65-75 {
+	grid-row: 2/3;
+	grid-column: 1/4;
+}
+
+.diag-75-85 {
+	grid-row: 2/3;
+	grid-column: 4/7;
 }
 
 .diagonal-item {
@@ -914,16 +944,18 @@ a:visited {
 	flex-direction: column;
 }
 
-.diagonal-item:nth-child(3n+1) .diagonal-params {
-	border: 4px solid var(--yellow-color)
-}
-
-.diagonal-item:nth-child(3n+2) .diagonal-params {
+.diag-41-55 .diagonal-params,
+.diag-65-75 .diagonal-params {
 	border: 4px solid var(--red-color)
 }
 
-.diagonal-item:nth-child(3n+3) .diagonal-params {
+.diag-50-60 .diagonal-params,
+.diag-75-85 .diagonal-params {
 	border: 4px solid var(--blue-color)
+}
+
+.diag-58-65 .diagonal-params {
+	border: 4px solid var(--yellow-color)
 }
 
 .diagonal-image {
@@ -957,40 +989,38 @@ a:visited {
 	justify-content: center;
 }
 
-/*Все желтые кнопки*/
-.diagonal-item:nth-child(3n+1) .diagonal-buy-button {
-	background-color: var(--yellow-color);
-	box-shadow: 0px 0px 10px 0px var(--yellow-color);
-	transition: all 0.2s;
-}
-
-.diagonal-item:nth-child(3n+1) .diagonal-buy-button:hover {
-	box-shadow: 0px 0px 30px 5px var(--yellow-color);
-
-}
-
-/*Все красные кнопки*/
-.diagonal-item:nth-child(3n+2) .diagonal-buy-button {
+.diag-41-55 .diagonal-buy-button,
+.diag-65-75 .diagonal-buy-button {
 	background-color: var(--red-color);
 	box-shadow: 0px 0px 10px 0px var(--red-color);
 	transition: all 0.2s;
 }
 
-.diagonal-item:nth-child(3n+2) .diagonal-buy-button:hover {
+.diag-41-55 .diagonal-buy-button:hover,
+.diag-65-75 .diagonal-buy-button:hover {
 	box-shadow: 0px 0px 30px 5px var(--red-color);
-
 }
 
-/*Все синие кнопки*/
-.diagonal-item:nth-child(3n+3) .diagonal-buy-button {
+.diag-50-60 .diagonal-buy-button,
+.diag-75-85 .diagonal-buy-button {
 	background-color: var(--blue-color);
 	box-shadow: 0px 0px 10px 0px var(--blue-color);
 	transition: all 0.2s;
 }
 
-.diagonal-item:nth-child(3n+3) .diagonal-buy-button:hover {
+.diag-50-60 .diagonal-buy-button:hover,
+.diag-75-85 .diagonal-buy-button:hover {
 	box-shadow: 0px 0px 30px 5px var(--blue-color);
+}
 
+.diag-58-65 .diagonal-buy-button {
+	background-color: var(--yellow-color);
+	box-shadow: 0px 0px 10px 0px var(--yellow-color);
+	transition: all 0.2s;
+}
+
+.diag-58-65 .diagonal-buy-button:hover {
+	box-shadow: 0px 0px 30px 5px var(--yellow-color);
 }
 
 .diagonals-warnings {
@@ -1030,6 +1060,30 @@ a:visited {
 		grid-template-columns: repeat(2, 1fr);
 	}
 
+
+	.diag-41-55 {
+		grid-column: auto;
+	}
+
+	.diag-50-60 {
+		grid-column: auto;
+	}
+
+	.diag-58-65 {
+		grid-column: auto;
+	}
+
+	.diag-65-75 {
+		grid-row: auto;
+		grid-column: auto;
+	}
+
+	.diag-75-85 {
+		grid-row: 3/4;
+		grid-column: 1/3;
+	}
+
+
 	.diagonal-params {
 		font-size: 1rem;
 	}
@@ -1038,6 +1092,11 @@ a:visited {
 @media(max-width:650px) {
 	.diagonals-group {
 		grid-template-columns: 1fr;
+	}
+
+	.diag-75-85 {
+		grid-row: auto;
+		grid-column: auto;
 	}
 }
 
@@ -1371,6 +1430,14 @@ a:visited {
 .footer-number {
 	font-weight: 600;
 	margin-bottom: 10px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	column-gap: 10px;
+}
+
+.footer-number img {
+	max-width: 35px;
 }
 
 .footer-contacts {
