@@ -827,7 +827,7 @@ a:visited {
 
 .advantages-card-heading {
 	text-align: center;
-	font-size: 1.675rem;
+	font-size: 1.475rem;
 	font-weight: 900;
 	margin-bottom: 10px;
 }
@@ -837,6 +837,21 @@ a:visited {
 	font-size: 1.125rem;
 	font-weight: 500;
 
+}
+
+.simplicity-number,
+.simplicity-number:visited {
+	font-size: 1.125rem;
+	font-weight: 700;
+	color: var(--bg-color);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	column-gap: 10px;
+}
+
+.simplicity-number img {
+	max-width: 40px;
 }
 
 /*Адаптация Advantages*/
@@ -852,6 +867,15 @@ a:visited {
 		font-size: 1.275rem;
 		font-weight: 900;
 		margin-bottom: 10px;
+	}
+
+	.simplicity-number img {
+		max-width: 30px;
+	}
+
+	.simplicity-number,
+	.simplicity-number:visited {
+		font-size: 1rem;
 	}
 
 	.advantages-card-desc {
@@ -987,6 +1011,11 @@ a:visited {
 	width: 100%;
 	padding-inline: 10px;
 	justify-content: center;
+	margin-bottom: 10px;
+}
+
+.yam {
+	margin-bottom: 0;
 }
 
 .diag-41-55 .diagonal-buy-button,
